@@ -345,9 +345,20 @@ Estan formados por diferentes componentes de react que veremos mas adelante.
 
 Esta funcion, por cada item que recibe (restaurante), se ejecuta.
 
-### Flujo del ejemplo de restaurantes
+### Error en concatenaciones
 
-Primero se crea el useState de restaurantes, con un estado inicial vacio que tendrá en el primer render de la pagina (cuando se monta). Con el useEffect indicamos que cuando se haya hecho el primero render o cuando se actualice la ruta se llame a la funcion fetch para cargar los datos de los restaurantes de la bd. Finalmente los mostramos de manera personalizada en un flatList en el return utilizando la funcion renderRestaurant().
+Uno de los errores más comunes en React (y JavaScript en general) ocurre cuando intentamos **acceder directamente a propiedades de un objeto que puede ser `undefined` o `null`**, lo que da lugar a un error de tipo:
+
+`TypeError: Cannot read property 'name' of undefined`
+
+Este error sucede si tratamos de acceder a una propiedad concatenada, es decir, a una propiedad que se accede a traves de otra propiedad, por ejemplo, `order.restaurant.name`. En el render inicial, el useState de order está vacío, por lo que al acceder a `order.restaurant` obtenemos undefined, esto no daria ningun error, sin embargo, al hacer la concatenacion estariamos haciendo `undefined.name`, produciendo el error. 
+
+La solución al error es usar `?`: 
+`<Text>{order.restaurant?.name}</Text> `
+De esta forma le estariamos dicendo al programa que si order.restaurant existe, acceda a la propiedad name, pero sino, que no lo intente.
+
+Tras esto se haria el segundo render, el del useEffect, y ahora si accedería sin problemas a todas las propiedades.
+
 
 ## Componentes de React
 
@@ -1145,3 +1156,26 @@ Ejemplo visual de DeleteModal:
 ![[Pasted image 20250629125239.png]]
 
 
+## Mostrar componentes con condiciones
+
+En React (y React Native) es común querer **mostrar o no mostrar un componente según una condición**. Esto se hace con expresiones dentro del JSX que devuelven el componente solo si la condición se cumple.
+
+En JSX puedes usar **operadores lógicos** como `&&` para hacer renderizado condicional:
+
+`{ condición && <Componente /> }`
+
+- Si `condición` es `true`, entonces `<Componente />` se renderiza.
+- Si `condición` es `false`, no se renderiza nada (no muestra nada en pantalla).
+
+Por ejemplo:
+```
+{!item.availability &&
+  <TextRegular textStyle={styles.availability }>Not available</TextRegular>
+}
+```
+Aqui el texto de Not available solo se muestra si item.availability es false.
+
+Otra opción es utilizar el operador ternario:
+`{ condición ? <ComponenteA /> : <ComponenteB /> }`
+
+Pero si solo quieres mostrar o esconder un componente, el `&&` es más simple y legible.
