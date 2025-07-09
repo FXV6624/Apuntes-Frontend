@@ -22,7 +22,7 @@
     
 - **Cuándo usar:** Para hacer el texto más grande o más pequeño.
     
-- **Ejemplo:** `fontSize: 20px;` → texto de 20 píxeles.
+- **Ejemplo:** `fontSize: '20px'` → texto de 20 píxeles.
 ---
 
 ### 4. **font-weight**
@@ -31,7 +31,7 @@
     
 - **Cuándo usar:** Para destacar texto usando grosor, por ejemplo negrita.
     
-- **Ejemplo:** `fontWeight: 'bold';` o `font-weight: 700;`
+- **Ejemplo:** `fontWeight: 'bold'` o `font-weight: 700`
 ---
 
 ### 5. **text-align**
@@ -40,7 +40,7 @@
     
 - **Cuándo usar:** Para centrar texto o alinearlo a la izquierda o derecha.
     
-- **Ejemplo:** `textAlign: 'center';`
+- **Ejemplo:** `textAlign: 'center'`
 ---
 
 ### 6. **width**
@@ -49,7 +49,7 @@
     
 - **Cuándo usar:** Para controlar qué tan ancho debe ser un div, imagen, botón, etc.
     
-- **Ejemplo:** `width: 300px;`
+- **Ejemplo:** `width: '300px'`
 ---
 
 ### 7. **height**
@@ -58,7 +58,7 @@
     
 - **Cuándo usar:** Para controlar la altura fija o mínima de un bloque o imagen.
     
-- **Ejemplo:** `height: 150px;`
+- **Ejemplo:** `height: '150px'`
 ---
 
 ### 8. **padding**
@@ -67,7 +67,7 @@
     
 - **Cuándo usar:** Para separar texto o contenido del borde, como “relleno”.
     
-- **Ejemplo:** `padding: 10px;` → espacio interno de 10 píxeles.
+- **Ejemplo:** `padding: '10px'` → espacio interno de 10 píxeles.
 ---
 
 ### 9. **margin**
@@ -76,7 +76,7 @@
     
 - **Cuándo usar:** Para separar bloques o elementos entre sí.
     
-- **Ejemplo:** `margin: 20px;` → espacio afuera del borde.
+- **Ejemplo:** `margin: '20px'` → espacio afuera del borde.
 ---
 ## **Posicionar objetos**
 ### 10. **position**
